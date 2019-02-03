@@ -31,5 +31,16 @@ MongoClient.connect('mongodb://localhost:27017/todoApp',{ useNewUrlParser: true 
             console.log(result.ops[0]._id.getTimestamp());
         });*/
 
+        db.collection('Users').insertOne({
+                name: "Alan",
+                age : 35,
+                location : "USA"
+        }, (err, result) => {
+                if (err) {
+                        console.log("unable to create a new member",err);
+                }
+                JSON.stringify(result, undefined, 2);
+        });
+
         client.close();
 });
